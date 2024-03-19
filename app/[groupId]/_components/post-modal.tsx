@@ -1,6 +1,6 @@
 import { Doc } from "@/convex/_generated/dataModel";
 import { PostCard } from "./post-card";
-// import { CommentList } from "./comment-list";
+import { CommentList } from "./comment-list";
 
 
 interface PostProps {
@@ -21,7 +21,7 @@ export const Post = ({
                 post={post}
                 className="hover:shadow-[1px_1px_2px_2px_rgba(0,0,0,0.3)] space-y-4 p-4 rounded-xl"
             />
-            {/* <CommentList post={post} /> */}
+            <CommentList post={post} />
         </div>
     );
 };

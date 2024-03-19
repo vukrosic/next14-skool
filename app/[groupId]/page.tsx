@@ -4,10 +4,9 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
 import { useRouter } from "next/navigation";
-// import { GroupNavbar } from "./_components/group-navbar";
+import { GroupNavbar } from "./_components/group-navbar";
 import { CreatePostModal } from "./_components/create-post-modal";
-// import { PostCard } from "./_components/post-card";
-// import { AboutSide } from "@/components/about-side";
+import { AboutSide } from "@/components/about-side";
 import { Post } from "./_components/post-modal";
 
 interface ChatPageProps {
@@ -25,6 +24,12 @@ const Community = ({ params }: ChatPageProps) => {
     if (group === undefined) {
         return <div>Loading...</div>;
     }
+
+    if (!group?.endsOn || group?.endsOn < Date.now()) {
+        return <div>Subscription expired.</div>;
+    }
+
+
 
     if (group === null) {
         router.push("/");
@@ -52,7 +57,7 @@ const Community = ({ params }: ChatPageProps) => {
                     ))}
                 </div>
             </div>
-            {/* <AboutSide handleEdit={handleEdit} group={group} membersText={membersText} currentUser={currentUser} /> */}
+            <AboutSide handleEdit={handleEdit} group={group} membersText={membersText} currentUser={currentUser} />
         </div>
     )
 }

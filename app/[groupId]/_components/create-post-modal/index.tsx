@@ -64,12 +64,12 @@ export const CreatePostModal = ({
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
-                    <Textarea
+                    {/* <Textarea
                         placeholder="Content"
                         className="ring-0 rounded-xl bg-inherit placeholder:text-neutral-600 h-12"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
-                    />
+                    /> */}
                     <div className="flex">
                         <DialogClose asChild>
                             <Button
